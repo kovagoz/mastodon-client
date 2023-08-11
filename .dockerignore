@@ -1,0 +1,2 @@
+# Disallowed in production environment
+public/phpinfo.php

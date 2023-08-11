@@ -1,0 +1,16 @@
+---
+services:
+  app:
+    build:
+      context: .
+      target: dev
+      args:
+        - COMPOSER_VERSION
+    env_file:
+      - ./.env
+    ports:
+      - '8000:80'
+    volumes:
+      - .:/var/www
+      - ./config/php-dev.ini:/usr/local/etc/php/conf.d/php.ini:ro
+      - ./config/apache.conf:/etc/apache2/sites-enabled/000-default.conf:ro
